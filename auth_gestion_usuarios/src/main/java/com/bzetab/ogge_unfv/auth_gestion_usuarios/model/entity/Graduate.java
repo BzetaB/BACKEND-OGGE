@@ -1,5 +1,7 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
+import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.enums.CurrentDegree;
+import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.enums.DegreeType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,8 +31,13 @@ public class Graduate {
     @Column(name = "cellphone_employee", nullable = false, length = 9)
     private String cellphone_graduate;
 
+    @Column(name = "current_degree", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CurrentDegree current_degree;
+
     @Column(name = "aspire_degree_graduate", nullable = false)
-    private Boolean aspire_degree_graduate;
+    @Enumerated(EnumType.STRING)
+    private DegreeType aspire_degree_graduate;
 
     @Column(name = "status_employee", nullable = false)
     private Boolean status_graduate = false;
