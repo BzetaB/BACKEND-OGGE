@@ -29,4 +29,9 @@ public class UsersAuth {
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
     private LocalDateTime date_create_modification;
+
+    //RELATIONS
+    @OneToOne
+    @JoinColumn(name = "rol_id", referencedColumnName = "id_rol", nullable = false)
+    private Rol rol;
 }

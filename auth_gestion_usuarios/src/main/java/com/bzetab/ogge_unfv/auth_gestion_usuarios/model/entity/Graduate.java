@@ -38,4 +38,9 @@ public class Graduate {
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
     private LocalDateTime date_create_modification;
+
+    //RELATIONS
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id_users", nullable = false)
+    private UsersAuth usersAuth;
 }
