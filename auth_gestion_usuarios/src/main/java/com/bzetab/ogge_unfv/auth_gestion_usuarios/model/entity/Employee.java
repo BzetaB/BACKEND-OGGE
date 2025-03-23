@@ -1,4 +1,4 @@
-package com.bzetab.ogge_unfv.auth_gestion_usuarios.model;
+package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -30,7 +30,6 @@ public class Employee {
     @Column(name = "document_number", nullable = false, length = 15, unique = true)
     private String document_number;
 
-    @CreationTimestamp
     @Column(name = "date_admission", nullable = false, updatable = false)
     private LocalDateTime date_admission;
 
