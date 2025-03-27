@@ -1,11 +1,15 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.print.Doc;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -46,4 +50,24 @@ public class Employee {
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id_users", nullable = false)
     private UsersAuth usersAuth;
+
+    @OneToOne
+    @JoinColumn(name = "id_position", referencedColumnName = "id_position", nullable = false)
+    private Position position;
+
+    @OneToOne
+    @JoinColumn(name = "id_document", referencedColumnName = "id_document", nullable = false)
+    private Document document;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private Set<EmployeeStep> steps = new HashSet<>();
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private Set<EmployeeArea> areas = new HashSet<>();
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private Set<EmployeeProgram> programs = new HashSet<>();
 }

@@ -2,12 +2,15 @@ package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
 import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.enums.CurrentDegree;
 import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.enums.DegreeType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -50,4 +53,12 @@ public class Graduate {
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id_users", nullable = false)
     private UsersAuth usersAuth;
+
+    @OneToOne
+    @JoinColumn(name = "id_document", referencedColumnName = "id_document", nullable = false)
+    private Document document;
+
+    @OneToMany(mappedBy = "graduate", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private Set<GraduateDegree> degrees = new HashSet<>();
 }
