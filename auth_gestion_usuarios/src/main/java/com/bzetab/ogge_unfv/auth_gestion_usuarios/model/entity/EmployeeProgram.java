@@ -17,11 +17,11 @@ public class EmployeeProgram {
 
     @ManyToOne
     @JoinColumn(name = "id_employee", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("employee_programs")
     private Employee employee;
 
     @ManyToOne
     @JoinColumn(name = "id_program", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("program_employees")
     private Program program;
 }

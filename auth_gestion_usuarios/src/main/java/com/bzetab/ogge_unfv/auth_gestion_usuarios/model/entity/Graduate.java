@@ -54,8 +54,8 @@ public class Graduate {
     @JoinColumn(name = "user_id", referencedColumnName = "id_users", nullable = false)
     private UsersAuth usersAuth;
 
-    @OneToOne
-    @JoinColumn(name = "id_document", referencedColumnName = "id_document", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_document", nullable = false)
     private Document document;
 
     @OneToMany(mappedBy = "graduate", cascade = CascadeType.ALL, orphanRemoval = true)

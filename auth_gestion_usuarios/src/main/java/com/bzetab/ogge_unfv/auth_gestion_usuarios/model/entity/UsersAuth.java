@@ -1,5 +1,7 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +33,11 @@ public class UsersAuth {
     private LocalDateTime date_create_modification;
 
     //RELATIONS
-    @OneToOne
-    @JoinColumn(name = "rol_id", referencedColumnName = "id_rol", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "rol_id", unique = true, nullable = false)
     private Rol rol;
+
+    @OneToOne(mappedBy = "usersAuth", cascade = CascadeType.ALL)
+    @JsonBackReference("employee_user")
+    private Employee employee;
 }

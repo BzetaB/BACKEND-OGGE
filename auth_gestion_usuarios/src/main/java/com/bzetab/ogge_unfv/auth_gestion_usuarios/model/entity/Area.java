@@ -1,5 +1,6 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -31,6 +32,6 @@ public class Area {
     private LocalDateTime date_create_modification;
 
     @OneToMany(mappedBy = "area", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("area_employees")
     private Set<EmployeeArea> employees = new HashSet<>();
 }

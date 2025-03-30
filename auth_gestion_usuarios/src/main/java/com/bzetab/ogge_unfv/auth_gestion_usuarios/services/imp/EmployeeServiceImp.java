@@ -41,14 +41,7 @@ public class EmployeeServiceImp implements EmployeeService {
                     emp.setDocument_number(employee.getDocument_number());
                     emp.setDate_departure(employee.getDate_departure());
                     emp.setStatus_employee(employee.getStatus_employee());
-
-                    if(employee.getDocument() != null){
-                        emp.getDocument().setName_document(employee.getDocument().getName_document());
-                    }
-
-                    if(employee.getPosition() != null){
-                        emp.getPosition().setName_position(employee.getPosition().getName_position());
-                    }
+                    emp.setDocument(employee.getDocument());
                     return employeeRepository.save(emp);
                 }).orElseThrow(() -> new RuntimeException("No se encontro el empleado"));
     }

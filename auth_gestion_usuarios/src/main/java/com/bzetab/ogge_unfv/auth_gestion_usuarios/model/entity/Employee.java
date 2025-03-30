@@ -47,26 +47,27 @@ public class Employee {
 
     //RELATIONS
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id_users", nullable = false)
+    @JoinColumn(name = "user_id", unique = true, nullable = false)
+    @JsonManagedReference("employee_user")
     private UsersAuth usersAuth;
 
-    @OneToOne
-    @JoinColumn(name = "id_position", referencedColumnName = "id_position", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_position", nullable = false)
     private Position position;
 
-    @OneToOne
-    @JoinColumn(name = "id_document", referencedColumnName = "id_document", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_document", nullable = false)
     private Document document;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("employee_steps")
     private Set<EmployeeStep> steps = new HashSet<>();
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("employee_areas")
     private Set<EmployeeArea> areas = new HashSet<>();
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("employee_programs")
     private Set<EmployeeProgram> programs = new HashSet<>();
 }

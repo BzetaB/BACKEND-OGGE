@@ -1,5 +1,6 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,6 +23,6 @@ public class Program {
     private String name_program;
 
     @OneToMany(mappedBy = "program", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("program_employees")
     private Set<EmployeeProgram> employees = new HashSet<>();
 }

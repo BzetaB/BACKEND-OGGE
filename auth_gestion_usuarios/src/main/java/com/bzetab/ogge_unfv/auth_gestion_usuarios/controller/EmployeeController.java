@@ -3,9 +3,7 @@ package com.bzetab.ogge_unfv.auth_gestion_usuarios.controller;
 import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity.Employee;
 import com.bzetab.ogge_unfv.auth_gestion_usuarios.services.imp.EmployeeServiceImp;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,12 @@ public class EmployeeController {
 
     public EmployeeController(EmployeeServiceImp employeeServiceImp) {
         this.employeeServiceImp = employeeServiceImp;
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Integer id, @RequestBody Employee employee) {
+        employee = employeeServiceImp.updateEmployee(employee);
+        return ResponseEntity.ok(employee);
     }
 
     @GetMapping("/list")
