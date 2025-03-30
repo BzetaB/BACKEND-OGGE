@@ -1,5 +1,6 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.controller;
 
+import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.dto.EmployeeDto;
 import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity.Employee;
 import com.bzetab.ogge_unfv.auth_gestion_usuarios.services.imp.EmployeeServiceImp;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,8 @@ public class EmployeeController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Integer id, @RequestBody Employee employee) {
-        employee = employeeServiceImp.updateEmployee(employee);
-        return ResponseEntity.ok(employee);
+    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Integer id, @RequestBody EmployeeDto employeeDto) {
+        return ResponseEntity.ok(employeeServiceImp.updateEmployee(employeeDto));
     }
 
     @GetMapping("/list")
