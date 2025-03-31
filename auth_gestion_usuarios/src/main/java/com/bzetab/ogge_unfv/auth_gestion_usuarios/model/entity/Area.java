@@ -19,17 +19,17 @@ public class Area {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_area")
-    private Integer id_area;
+    private Integer idArea;
 
     @Column(name = "name_area", nullable = false, length = 80, unique = true)
-    private String name_area;
+    private String nameArea;
 
     @Column(name = "status_area", nullable = false)
-    private Boolean status_area = false;
+    private Boolean statusArea = false;
 
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
-    private LocalDateTime date_create_modification;
+    private LocalDateTime dateCreateModification;
 
     @OneToMany(mappedBy = "area", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("area_employees")

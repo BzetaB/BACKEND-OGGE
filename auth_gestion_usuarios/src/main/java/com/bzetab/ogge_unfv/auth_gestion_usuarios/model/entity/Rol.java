@@ -15,15 +15,15 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rol")
-    private Integer id_rol;
+    private Integer idRol;
 
     @Column(name = "name_rol", nullable = false, length = 100, unique = true)
-    private String name_rol;
+    private String nameRol;
 
     @Column(name = "status_rol", nullable = false)
-    private Boolean status_rol = false;
+    private Boolean statusRol = false;
 
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
-    private LocalDateTime date_create_modification;
+    private LocalDateTime dateCreateModification;
 }

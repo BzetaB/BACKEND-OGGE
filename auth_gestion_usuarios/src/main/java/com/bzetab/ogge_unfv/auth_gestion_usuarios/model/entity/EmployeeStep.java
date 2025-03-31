@@ -13,7 +13,7 @@ public class EmployeeStep {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_employee_step")
-    private Integer id_employee_step;
+    private Integer idEmployeeStep;
 
     @ManyToOne
     @JoinColumn(name = "id_employee", nullable = false)

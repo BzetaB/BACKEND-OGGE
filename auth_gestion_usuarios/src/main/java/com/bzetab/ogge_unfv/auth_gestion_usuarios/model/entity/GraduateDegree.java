@@ -13,7 +13,7 @@ public class GraduateDegree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_graduate_degree")
-    private Integer id_graduate_degree;
+    private Integer idGraduateDegree;
 
     @ManyToOne
     @JoinColumn(name = "id_graduate", nullable = false)

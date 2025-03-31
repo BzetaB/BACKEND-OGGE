@@ -18,32 +18,32 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_employee")
-    private Integer id_employee;
+    private Integer idEmployee;
 
     @Column(name = "name_employee", nullable = false, length = 80)
-    private String name_employee;
+    private String nameEmployee;
 
     @Column(name = "lastname_employee", nullable = false, length = 80)
-    private String lastname_employee;
+    private String lastNameEmployee;
 
     @Column(name = "cellphone_employee", nullable = false, length = 9)
-    private String cellphone_employee;
+    private String cellphoneEmployee;
 
-    @Column(name = "document_number", nullable = false, length = 15, unique = true)
-    private String document_number;
+    @Column(name = "document_number_employee", nullable = false, length = 15, unique = true)
+    private String documentNumberEmployee;
 
-    @Column(name = "date_admission", nullable = false, updatable = false)
-    private LocalDateTime date_admission;
+    @Column(name = "date_admission_employee", nullable = false, updatable = false)
+    private LocalDateTime dateAdmissionEmployee;
 
-    @Column(name = "date_departure")
-    private LocalDateTime date_departure;
+    @Column(name = "date_departure_employee")
+    private LocalDateTime dateDepartureEmployee;
 
     @Column(name = "status_employee", nullable = false)
-    private Boolean status_employee = false;
+    private Boolean statusEmployee = false;
 
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
-    private LocalDateTime date_create_modification;
+    private LocalDateTime dateCreateModification;
 
     //RELATIONS
     @OneToOne

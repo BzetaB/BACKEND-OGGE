@@ -19,21 +19,21 @@ public class Degree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_degree")
-    private Integer id_degree;
+    private Integer idDegree;
 
     @Column(name = "degree_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private DegreeType degreeType;
 
     @Column(name = "name_degree", nullable = false, length = 80, unique = true)
-    private String name_degree;
+    private String nameDegree;
 
     @Column(name = "status_degree", nullable = false)
-    private Boolean status_degree = false;
+    private Boolean statusDegree = false;
 
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
-    private LocalDateTime date_create_modification;
+    private LocalDateTime dateCreateModification;
 
     @OneToMany(mappedBy = "degree", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference

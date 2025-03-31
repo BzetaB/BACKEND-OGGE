@@ -48,30 +48,30 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public Employee updateEmployee(EmployeeDto employeeDto) {
-        return employeeRepository.findById(employeeDto.getId_employee())
+        return employeeRepository.findById(employeeDto.getIdEmployee())
                 .map(emp -> {
-                    emp.setName_employee(employeeDto.getName_employee());
-                    emp.setLastname_employee(employeeDto.getLast_name_employee());
-                    emp.setCellphone_employee(employeeDto.getCellphone_employee());
+                    emp.setNameEmployee(employeeDto.getNameEmployee());
+                    emp.setLastNameEmployee(employeeDto.getLastNameEmployee());
+                    emp.setCellphoneEmployee(employeeDto.getCellphoneEmployee());
 
-                    if (employeeDto.getId_document() != null) {
-                        Document document = documentRepository.findById(employeeDto.getId_document()).orElse(null);
+                    if (employeeDto.getIdDocumentEmployee() != null) {
+                        Document document = documentRepository.findById(employeeDto.getIdDocumentEmployee()).orElse(null);
                         emp.setDocument(document);
                     }
-                    emp.setDocument_number(employeeDto.getDocument_number_employee());
-                    emp.setDate_departure(employeeDto.getDate_departure_employee());
-                    emp.setStatus_employee(employeeDto.getStatus_employee());
+                    emp.setDocumentNumberEmployee(employeeDto.getDocumentNumberEmployee());
+                    emp.setDateDepartureEmployee(employeeDto.getDateDepartureEmployee());
+                    emp.setStatusEmployee(employeeDto.getStatusEmployee());
 
 
-                    if (employeeDto.getId_position() != null) {
-                        Position position = positionRepository.findById(employeeDto.getId_position()).orElse(null);
+                    if (employeeDto.getIdPositionEmployee() != null) {
+                        Position position = positionRepository.findById(employeeDto.getIdPositionEmployee()).orElse(null);
                         emp.setPosition(position);
                     }
 
                     UsersAuth usersAuth = emp.getUsersAuth();
                     if (usersAuth != null) {
-                        usersAuth.setEmail_users(employeeDto.getEmail_employee());
-                        usersAuth.setPassword_users(employeeDto.getPassword());
+                        usersAuth.setEmailUsers(employeeDto.getEmailEmployee());
+                        usersAuth.setPasswordUsers(employeeDto.getPasswordEmployee());
                         emp.setUsersAuth(usersAuth);
                     }
 

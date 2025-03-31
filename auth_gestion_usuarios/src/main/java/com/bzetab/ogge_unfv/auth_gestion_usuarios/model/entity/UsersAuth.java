@@ -17,20 +17,20 @@ public class UsersAuth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_users")
-    private Integer id_users;
+    private Integer idUsers;
 
     @Column(name = "email_users", nullable = false, length = 100, unique = true)
-    private String email_users;
+    private String emailUsers;
 
     @Column(name = "password_users", nullable = false, length = 50)
-    private String password_users;
+    private String passwordUsers;
 
     @Column(name = "status_users", nullable = false)
-    private Boolean status_users = false;
+    private Boolean statusUsers = false;
 
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
-    private LocalDateTime date_create_modification;
+    private LocalDateTime dateCreateModification;
 
     //RELATIONS
     @ManyToOne

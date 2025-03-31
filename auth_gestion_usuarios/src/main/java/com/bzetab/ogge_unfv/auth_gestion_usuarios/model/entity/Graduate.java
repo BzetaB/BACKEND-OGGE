@@ -20,34 +20,34 @@ public class Graduate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_graduate")
-    private Integer id_graduate;
+    private Integer idGraduate;
 
     @Column(name = "name_graduate", nullable = false, length = 80)
-    private String name_graduate;
+    private String nameGraduate;
 
     @Column(name = "lastname_graduate", nullable = false, length = 80)
-    private String lastname_graduate;
+    private String lastNameGraduate;
 
-    @Column(name = "document_number", nullable = false, length = 15, unique = true)
-    private String document_number;
+    @Column(name = "document_number_graduate", nullable = false, length = 15, unique = true)
+    private String documentNumberGraduate;
 
-    @Column(name = "cellphone_employee", nullable = false, length = 9)
-    private String cellphone_graduate;
+    @Column(name = "cellphone_graduate", nullable = false, length = 9)
+    private String cellphoneGraduate;
 
     @Column(name = "current_degree", nullable = false)
     @Enumerated(EnumType.STRING)
-    private CurrentDegree current_degree;
+    private CurrentDegree currentDegree;
 
     @Column(name = "aspire_degree_graduate", nullable = false)
     @Enumerated(EnumType.STRING)
-    private DegreeType aspire_degree_graduate;
+    private DegreeType aspireDegreeGraduate;
 
-    @Column(name = "status_employee", nullable = false)
-    private Boolean status_graduate = false;
+    @Column(name = "status_graduate", nullable = false)
+    private Boolean statusGraduate = false;
 
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
-    private LocalDateTime date_create_modification;
+    private LocalDateTime dateCreateModification;
 
     //RELATIONS
     @OneToOne

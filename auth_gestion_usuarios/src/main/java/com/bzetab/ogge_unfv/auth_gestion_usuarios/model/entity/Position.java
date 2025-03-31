@@ -12,11 +12,11 @@ public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_position")
-    private Integer id_position;
+    private Integer idPosition;
 
     @Column(name = "name_position", nullable = false, length = 80, unique = true)
-    private String name_position;
+    private String namePosition;
 
     @Column(name = "description_position", length = 100)
-    private String description_position;
+    private String descriptionPosition;
 }

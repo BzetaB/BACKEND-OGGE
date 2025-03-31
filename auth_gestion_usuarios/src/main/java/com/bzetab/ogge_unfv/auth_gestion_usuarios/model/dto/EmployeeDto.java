@@ -8,15 +8,15 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class EmployeeDto {
-    private Integer id_employee;
-    private String name_employee;
-    private String last_name_employee;
-    private String cellphone_employee;
-    private Integer id_document;
-    private String document_number_employee;
-    private LocalDateTime date_departure_employee;
-    private Boolean status_employee;
-    private Integer id_position;
-    private String email_employee;
-    private String password;
+    private Integer idEmployee;
+    private String nameEmployee;
+    private String lastNameEmployee;
+    private String cellphoneEmployee;
+    private Integer idDocumentEmployee;
+    private String documentNumberEmployee;
+    private LocalDateTime dateDepartureEmployee;
+    private Boolean statusEmployee;
+    private Integer idPositionEmployee;
+    private String emailEmployee;
+    private String passwordEmployee;
 }

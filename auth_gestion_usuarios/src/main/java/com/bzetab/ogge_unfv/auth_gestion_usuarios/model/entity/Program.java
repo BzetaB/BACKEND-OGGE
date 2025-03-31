@@ -17,10 +17,10 @@ public class Program {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_program")
-    private Integer id_program;
+    private Integer idProgram;
 
     @Column(name = "name_program", nullable = false, length = 80, unique = true)
-    private String name_program;
+    private String nameProgram;
 
     @OneToMany(mappedBy = "program", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("program_employees")
