@@ -51,7 +51,8 @@ public class Graduate {
 
     //RELATIONS
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id_users", nullable = false)
+    @JoinColumn(name = "user_id", unique = true, nullable = false)
+    @JsonManagedReference("graduate_user")
     private UsersAuth usersAuth;
 
     @ManyToOne

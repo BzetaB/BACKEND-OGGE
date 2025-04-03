@@ -1,5 +1,6 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.request;
 
+import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

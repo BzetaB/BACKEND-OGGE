@@ -1,7 +1,7 @@
 package com.bzetab.ogge_unfv.auth_gestion_usuarios.model.entity;
 
+import com.bzetab.ogge_unfv.auth_gestion_usuarios.model.enums.Role;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,16 +28,20 @@ public class UsersAuth {
     @Column(name = "status_users", nullable = false)
     private Boolean statusUsers = false;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
+
     @UpdateTimestamp
     @Column(name = "date_create_modification", nullable = false)
     private LocalDateTime dateCreateModification;
 
     //RELATIONS
-    @ManyToOne
-    @JoinColumn(name = "rol_id", unique = true, nullable = false)
-    private Rol rol;
-
     @OneToOne(mappedBy = "usersAuth", cascade = CascadeType.ALL)
     @JsonBackReference("employee_user")
     private Employee employee;
+
+    @OneToOne(mappedBy = "usersAuth", cascade = CascadeType.ALL)
+    @JsonBackReference("graduate_user")
+    private Graduate graduate;
 }
